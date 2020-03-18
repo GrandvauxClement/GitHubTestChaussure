@@ -1,0 +1,37 @@
+<h2 class="text-warning text-center"> Modifier cette paire de chaussure </h2>
+<div class="container">
+    <form #chaussureForm="ngForm" (ngSubmit)="updateChaussure()">
+        <div class="form-group">
+            <label for="name" class="h3 text-primary"> Nom </label>
+            <input class="form-control" type="text" id="name" name="name" required [(ngModel)]='chaussureToUpdate.nom' #name='ngModel'>
+            <div [hidden]="name.valid" class="alert alert-danger"> Le nom doit être renseigné </div>
+        </div>
+        <div class="form-group">
+            <label class="h3 text-primary"> Marque </label>
+            <ng-container *ngFor="let marque of marques">
+               <div>
+                    <input type="radio" id="inputRadio-{{marque}}" #chaussureValidation="ngModel" name="marque-{{marque}}" [value]="marque" required [(ngModel)]="chaussureToUpdate.marque">
+                    <label for="inputRadio-{{marque}}"> {{marque}} </label>
+               </div>
+            </ng-container>
+        </div>
+        <div class="form-group">
+          <label for="type" class="h3 text-primary" > Le type de mes chaussure</label>
+          <select class="form-control" id="type" name="type" required [(ngModel)]='chaussureToUpdate.type' #type="ngModel">
+                <option *ngFor="let type of types" [ngValue]="type">{{type}} </option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label for="taille" class="h3 text-primary"> Taille  </label>
+            <input class="form-control" type="text" id="taille" name="taille" required [(ngModel)]='chaussureToUpdate.taille' #taille='ngModel'>
+            <div [hidden]="taille.valid" class="alert alert-danger"> Le nom doit être renseigné </div>
+        </div>
+        <div class="form-group">
+            <label for="date" class="h3 text-primary">Date d'entrée en stock </label>
+            <input class="form-control" type="date" id="date" name="date" required [(ngModel)]='chaussureToUpdate.dateEntreStock' #date='ngModel'>
+            <div [hidden]="date.valid" class="alert alert-danger"> La date doit être renseigné </div>
+        </div>
+        <input [disabled]="!chaussureForm.valid" class="btn btn-success" type="submit" >
+
+    </form>
+</div>

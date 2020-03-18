@@ -1,0 +1,28 @@
+{
+  "chaussure": [
+    {
+      "id": 1,
+      "nom": "f50",
+      "marque": "Adidas",
+      "type": "Sport",
+      "taille": 43,
+      "dateEntreStock": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 2,
+      "nom": "Air MAx",
+      "marque": "Nike",
+      "type": "Ville",
+      "taille": 41,
+      "dateEntreStock": "2020-03-23T18:25:43.511Z"
+    },
+    {
+      "nom": "Air max",
+      "marque": "Nike",
+      "type": "Football",
+      "taille": "58",
+      "dateEntreStock": "2020-03-19",
+      "id": 3
+    }
+  ]
+}

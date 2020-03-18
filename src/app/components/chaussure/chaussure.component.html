@@ -1,0 +1,29 @@
+<h2 class="text-warning text-center"> Le nombre de chaussure totale est de : {{chaussures.length}}</h2>
+<button class="btn btn-primary d-block mx-auto my-5" [routerLink]="['/add-chaussure']"> Ajouter une bouvelle paire de chaussure</button>
+<div *ngIf="isLoading===true"> En chargement ...</div>
+<table class="table" *ngIf="isLoading===false">
+    <thead>
+        <tr>
+            <th scope="col"> Id</th>
+            <th scope="col"> Nom</th>
+            <th scope="col"> Marque</th>
+            <th scope="col"> Type </th>
+            <th scope="col"> Taille</th>
+            <th scope="col"> Date d'entrée En Stock </th>
+            <th scope="col"> Modifier  </th>
+            <th scope="col"> Supprimer </th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let chaussure of chaussures">
+        <tr >
+            <th scope="row" [routerLink]="['/chaussure-detail',chaussure.id]" class="goDetail">{{chaussure.id}} </th>
+            <td> {{chaussure.nom}} </td>
+            <td> {{chaussure.marque}} </td>
+            <td> {{chaussure.type}} </td>
+            <td> {{chaussure.taille}} </td>
+            <td> {{chaussure.dateEntreStock|date}} </td>
+            <td> <button class=" btn btn-success" [routerLink]="['/chaussure-update',chaussure.id]" > Modifier</button> </td>
+            <td> <button class="btn btn-danger" (click)="deleteChaussure(chaussure.id)"> Supprimer </button> </td>
+        </tr>
+    </tbody>
+</table>

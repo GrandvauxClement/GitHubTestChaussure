@@ -1,0 +1,20 @@
+<div *ngIf="isLoading===true"> Erreur de chargement  </div>
+<div *ngIf="isLoading===false" class="d-flex justify-content-center mt-5"> 
+    <div class="card" style="width: 30rem;">
+        <div class="card-body">
+          <h2 class="card-title text-danger">Detail de la chaussure n° {{chaussure.id}}</h2>
+          <ul class="card-text text-primary"> 
+              <li> Nom: {{chaussure.nom}} </li> 
+              <li>Marque: {{chaussure.marque}} </li> 
+               <li>Type: {{chaussure.type}} </li> 
+               <li>Taille: {{chaussure.taille}} </li>
+               <li>Date D'entré en Stock : {{chaussure.dateEntreStock|date}}</li>  
+          </ul>
+          <button  class="card-link btn btn-success">Modifier  </button>
+          <button  class="card-link btn btn-danger" (click)="deleteChaussure(chaussure.id)"> Supprimer </button>
+        </div>
+      </div>
+</div>
+
+
+  
